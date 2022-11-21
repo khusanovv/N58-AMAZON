@@ -1,0 +1,44 @@
+.sidebar{
+  width: 400px;
+  height: 100vh;
+  background-color: red;
+  position: fixed;
+  display: flex;
+  overflow: hidden;
+  top: 0;
+  left: -430px;
+  z-index: 10;
+  transition: 0.5s;
+}
+
+.active{
+ left: 0;
+ transition: 0.5s;
+}
+
+.close{
+  position: absolute;
+  left: 400px;
+  font-size: 30px;
+}
+
+.sidebarItem{
+  width: 100%;
+  padding: 15px 10px;
+  background-color: blue;
+  margin: 5px 0;
+}
+
+.sidebarWrapper{
+  width: 100%;
+  min-width: 400px;
+  height: 100%;
+  background-color: purple;
+}
+
+.sidebarOpen{
+  width: 100%;
+  min-width: 400px;
+  height: 100%;
+  background-color: green;
+}

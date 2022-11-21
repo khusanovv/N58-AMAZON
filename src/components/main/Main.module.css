@@ -1,0 +1,13 @@
+.main{
+  height: auto;
+  margin-top:  -200px;
+  z-index: 3;
+  position: relative;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+}

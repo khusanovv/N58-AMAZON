@@ -1,0 +1,8 @@
+
+
+        const imageCon = useRef();
+  
+
+  useEffect(() => {
+    imageCon.current.scrollLeft = imageCount * imageCon.current.offsetWidth
+  }, [imageCount])
