@@ -1,6 +1,7 @@
 import c from './Sidebar.module.css';
 import { FiArrowLeft, FiX } from 'react-icons/fi';
 import { useEffect, useRef, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
 
@@ -89,14 +90,13 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
     }
   }, [selectedSidebarItem])
 
-console.log(selectedSidebarItem)
   return (
     <div ref={sidebaropen} className={isSidebarOpen === true ? `${c.sidebar} ${c.active}` : `${c.sidebar}`}>
         <FiX className={c.close} onClick={() => {setIsSidebarOpen(false)}}/>
         <div className={c.sidebarWrapper} >
           {
             sidebarData.slice(0, sidebarLimit).map(sidebarEl =>
-              <div className={c.sidebarItem} onClick={() => {setSelectedSidebarItem(sidebarEl)}}>
+              <div key={uuidv4()} className={c.sidebarItem} onClick={() => {setSelectedSidebarItem(sidebarEl)}}>
                 <p>{sidebarEl.sidebarmaintitle}</p>
                 <p>{JSON.stringify(sidebarEl)}</p>
               </div>  
@@ -114,7 +114,7 @@ console.log(selectedSidebarItem)
             <h2>{selectedSidebarItem?.sidebarmaintitle}</h2>
             {
               selectedSidebarItem?.subitems.map(i =>
-                <p>{i}</p>  
+                <p key={uuidv4()}>{i}</p>  
               )
             }
           </div>

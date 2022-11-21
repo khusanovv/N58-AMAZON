@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-const Seemore = () => {
-  const [products, setProducts] = useState([]);
-  const [status, setStatus] = useState(null);
-  useEffect(() => {
-    axios.get("https://seal-app-42lge.ondigitalocean.app/category/category-reel")  
-      .then(response => {
-          setProducts(response)
-      })
-  }, [])
+import React from "react";
+import c from "./Seemore.module.css";
+import seemoredata from "../../seemore.json";
+import { v4 as uuidv4} from 'uuid';
+import { Link } from "react-router-dom";
 
-  console.log()
+const EssentialsGamers = () => {
   return (
-    <div>
-      {/* {
-        products.map(product => 
-            <div>
-                <img src={product?.image[0]?.url} alt="" />
-                <h2>{product?.name}</h2>
-            </div>
-        )
-      } */}
+    <div className={c.container}>
+      <img
+        className={c.essentialsImg}
+        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_LPHeader_Gamers_en_US.png"
+        alt=""
+      />
+      <h2 className={c.essentialsTitle}>Featured Categories</h2>
+      <div className={c.essentialsWrapper}>
+        {seemoredata.map(gamersItem => {
+          return (
+            <Link key={uuidv4()} to="/seemore/products" className={c.gamersLink}>
+              <img src={gamersItem.image} width="229px" />
+              <p>{gamersItem.title}</p>
+            </Link>
+          );
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Seemore
+export default EssentialsGamers;

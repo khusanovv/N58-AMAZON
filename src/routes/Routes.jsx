@@ -4,6 +4,8 @@ import Login from "./login/Login";
 import SignUp from "./signup/SignUp";
 import CustomerService from './customer-service/CustomerServices'
 import Seemore from './seemore/Seemore';
+import Products from './products/Products';
+import ProductInfo from './product-info/ProductInfo';
 
 const Routes = () => {
   return (
@@ -20,8 +22,14 @@ const Routes = () => {
       <Route path="/customer-service">
         <CustomerService />
       </Route>
-      <Route path="/seemore">
+      <Route exact path="/seemore">
         <Seemore />
+      </Route>
+      <Route exact path="/seemore/products">
+        <Products />
+      </Route>
+      <Route path="/seemore/products/:productId">
+        <ProductInfo />
       </Route>
     </>
   )
